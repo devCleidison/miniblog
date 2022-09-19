@@ -26,7 +26,7 @@ export const Navbar = () => {
               to="sign-in"
               className={({ isActive }) => (isActive ? "active" : "")}
             >
-              <User /> Sign in
+              <User /> Account
             </NavLink>
           </li>
           <li>

@@ -13,6 +13,7 @@ export const GlobalStyles = createGlobalStyle`
     --secondary-color: #e11d48;
 
     --primary-shadow: #a7f3d0;
+    --primary-hover: #15803d;
 
     --desktop-size: 1.6rem;
     --tablet-size: 1.5rem;

@@ -25,6 +25,12 @@ export const Container = styled.input`
     padding: 1.4rem 1.6rem;
 
     box-shadow: 0.3rem 0.4rem 0.6rem var(--primary-shadow);
+    cursor: pointer;
+
+    transition: background-color 300ms;
+    &:hover {
+      background-color: var(--primary-hover);
+    }
   }
 
   &[type="button"] {

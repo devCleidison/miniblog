@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
   :root {
@@ -50,6 +50,10 @@ export const GlobalStyles = createGlobalStyle`
 
     @media (min-width: 500px) {
       font-size: var(--tablet-size);
+
+      .toast-alert {
+        margin-top: 8rem;
+      }
     }
 
     @media (min-width: 700px) {
@@ -76,4 +80,4 @@ export const GlobalStyles = createGlobalStyle`
     list-style: none;
   }
   
-`
+`;

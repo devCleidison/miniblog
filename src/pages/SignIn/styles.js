@@ -6,7 +6,7 @@ export const Container = styled.section`
   @media (min-width: 500px) {
     padding-inline: 3rem;
   }
-`
+`;
 
 export const Content = styled.div`
   display: flex;
@@ -36,22 +36,22 @@ export const Content = styled.div`
     color: var(--gray-color);
 
     margin-top: 4rem;
-    
+
     input {
       color: var(--primary-color);
-      margin-left: .6rem;
+      margin-left: 0.6rem;
     }
   }
-`
+`;
 
-export const Logo = styled.span`
+export const Brand = styled.span`
   font-size: 3rem;
   margin-bottom: 4rem;
 
   text-align: center;
   font-weight: 700;
-  
+
   span {
     color: var(--primary-color);
   }
-`
+`;

@@ -31,6 +31,10 @@ export const Container = styled.input`
     &:hover {
       background-color: var(--primary-hover);
     }
+
+    &:disabled {
+      background-color: var(--gray-color);
+    }
   }
 
   &[type="button"] {

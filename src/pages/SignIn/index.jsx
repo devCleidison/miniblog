@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Form } from "../../components/Form";
 import { Input } from "../../components/Input";
@@ -7,6 +7,7 @@ import { Toast } from "../../components/Toast";
 
 import { toast } from "react-toastify";
 import { Container, Content, Brand } from "./styles";
+import { useAuthentication } from "../../hooks/useAuthentication";
 
 export const SignIn = () => {
   const [displayName, setDisplayName] = useState("");
@@ -14,9 +15,11 @@ export const SignIn = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
+  const { createUser, error: authError, loading } = useAuthentication();
+
   const [isShowModal, setIsShowModal] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const user = {
@@ -32,16 +35,28 @@ export const SignIn = () => {
       }
     }
 
-    console.log(user);
+    const res = await createUser(user);
+    handleModal();
   };
 
   const handleModal = () => {
+    setDisplayName("");
+    setEmail("");
+    setPassword("");
+    setConfirmPassword("");
+
     if (isShowModal) {
       setIsShowModal(false);
     } else {
       setIsShowModal(true);
     }
   };
+
+  useEffect(() => {
+    if (authError) {
+      toast.error(authError, { className: "toast-alert" });
+    }
+  }, [authError]);
 
   return (
     <Container>
@@ -81,7 +96,8 @@ export const SignIn = () => {
                 required
               />
 
-              <Input type="submit" value="Sign up" />
+              {!loading && <Input type="submit" value="Sign up" />}
+              {loading && <Input type="submit" value="Hold up" disabled />}
             </Form>
           </Modal>
         )}

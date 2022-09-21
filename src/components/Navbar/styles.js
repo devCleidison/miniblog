@@ -61,7 +61,7 @@ export const Navigation = styled.ul`
       flex-direction: column;
       align-items: center;
       row-gap: 0.2rem;
-      font-size: 1.2rem;
+      font-size: 1rem;
 
       &.active {
         color: var(--primary-color);

@@ -12,7 +12,7 @@ import { toast } from "react-toastify";
 import { Container, Content, Brand } from "./styles";
 import { useNavigate } from "react-router-dom";
 
-export const Account = () => {
+export const SignIn = () => {
   const [displayName, setDisplayName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

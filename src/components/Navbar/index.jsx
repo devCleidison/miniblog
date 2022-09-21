@@ -49,10 +49,10 @@ export const Navbar = () => {
           {!user && (
             <li>
               <NavLink
-                to="account"
+                to="sign-in"
                 className={({ isActive }) => (isActive ? "active" : "")}
               >
-                <User /> Account
+                <User /> Sign in
               </NavLink>
             </li>
           )}

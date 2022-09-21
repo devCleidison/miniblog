@@ -5,26 +5,26 @@ import { AppRoutes } from "./routes";
 
 import { Navbar } from "./components/Navbar";
 
-import { useAuthentication } from './hooks/useAuthentication'
+import { useAuthentication } from "./hooks/useAuthentication";
 import { onAuthStateChanged } from "firebase/auth";
 import { AuthProvider } from "./context/AuthContext";
 
 import { GlobalStyles } from "./styles/global";
 
 export default function App() {
-  const [user, setUser] = useState(undefined)
-  const { auth } = useAuthentication()
+  const [user, setUser] = useState(undefined);
+  const { auth } = useAuthentication();
 
-  const loadingUser = user === undefined
+  const loadingUser = user === undefined;
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      setUser(user)
-    })
-  }, [auth])
+      setUser(user);
+    });
+  }, [auth]);
 
-  if(loadingUser) {
-    return <p>Loading ...</p>
+  if (loadingUser) {
+    return <p>Loading ...</p>;
   }
 
   return (

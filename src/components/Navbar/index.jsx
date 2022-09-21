@@ -23,7 +23,7 @@ export const Navbar = () => {
           </li>
           <li>
             <NavLink
-              to="sign-in"
+              to="account"
               className={({ isActive }) => (isActive ? "active" : "")}
             >
               <User /> Account

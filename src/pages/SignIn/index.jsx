@@ -36,7 +36,10 @@ export const SignIn = () => {
     }
 
     const res = await createUser(user);
-    handleModal();
+    
+    if (res) {
+      handleModal();
+    }
   };
 
   const handleModal = () => {

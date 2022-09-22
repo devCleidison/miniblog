@@ -10,7 +10,7 @@ export const Container = styled.section`
   row-gap: 2rem;
 
   min-height: calc(100vh - var(--nav-height));
-  padding-bottom: 5rem;
+  padding: 0 3rem 5rem;
 
   p {
     color: var(--gray-color);
@@ -30,5 +30,9 @@ export const Container = styled.section`
     &:hover {
       background-color: var(--primary-hover);
     }
+  }
+
+  @media (max-width: 600px) {
+    padding: 0 2rem;
   }
 `;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.nav`
   box-shadow: rgba(0, 0, 0, 0.15) 0px -2px 10px 0px;
 
-  @media (max-width: 500px) {
+  @media (max-width: 600px) {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -51,7 +51,7 @@ export const Navigation = styled.ul`
     }
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 600px) {
     justify-content: space-around;
 
     width: 100%;

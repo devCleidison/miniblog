@@ -7,7 +7,7 @@ export const GlobalStyles = createGlobalStyle`
     --bg-color: #f9fafb;
     --text-color: #242424;
 
-    --gray-color: #6c757d;
+    --gray-color: #aaaaaa;
 
     --primary-color: #16a34a;
     --secondary-color: #e11d48;
@@ -61,6 +61,10 @@ export const GlobalStyles = createGlobalStyle`
     }
   }
 
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--text-color);
+  }
+
   button {
     background-color: transparent;
     border: none;
@@ -79,5 +83,4 @@ export const GlobalStyles = createGlobalStyle`
   ul {
     list-style: none;
   }
-  
 `;

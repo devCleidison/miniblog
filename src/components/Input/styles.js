@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.input`
   box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.08);
+  background-color: transparent;
 
   &::placeholder {
     color: var(--gray-color);
@@ -39,7 +40,6 @@ export const Container = styled.input`
 
   &[type="button"] {
     border: none;
-    background-color: transparent;
     box-shadow: none;
 
     cursor: pointer;

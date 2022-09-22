@@ -6,4 +6,6 @@ export const Container = styled.div`
   justify-content: center;
 
   min-height: 100vh;
+
+  font-size: 3rem;
 `

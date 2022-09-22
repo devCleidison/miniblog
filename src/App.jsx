@@ -32,7 +32,7 @@ export default function App() {
         <AuthProvider value={{ user }}>
           <BrowserRouter>
             <Navbar />
-            <AppRoutes />
+            <AppRoutes user={user}/>
           </BrowserRouter>
         </AuthProvider>
       )}

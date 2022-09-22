@@ -27,24 +27,24 @@ export const Navbar = () => {
             </NavLink>
           </li>
           {user && (
-            <li>
-              <NavLink
-                to="posts/create"
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
-                <Plus /> New Post
-              </NavLink>
-            </li>
-          )}
-          {user && (
-            <li>
-              <NavLink
-                to="dashboard"
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
-                <SquaresFour /> Dashboard
-              </NavLink>
-            </li>
+            <>
+              <li>
+                <NavLink
+                  to="posts/create"
+                  className={({ isActive }) => (isActive ? "active" : "")}
+                >
+                  <Plus /> New Post
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="dashboard"
+                  className={({ isActive }) => (isActive ? "active" : "")}
+                >
+                  <SquaresFour /> Dashboard
+                </NavLink>
+              </li>
+            </>
           )}
           {!user && (
             <li>

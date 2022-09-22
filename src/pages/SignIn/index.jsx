@@ -10,7 +10,6 @@ import { useAuthValue } from "../../context/AuthContext";
 
 import { toast } from "react-toastify";
 import { Container, Content, Brand } from "./styles";
-import { useNavigate } from "react-router-dom";
 
 export const SignIn = () => {
   const [displayName, setDisplayName] = useState("");
@@ -23,8 +22,6 @@ export const SignIn = () => {
   const [isShowModal, setIsShowModal] = useState(false);
 
   const { user } = useAuthValue();
-
-  const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -147,8 +144,6 @@ export const SignIn = () => {
             )}
           </>
         )}
-
-        {user && navigate('/dashboard')}
       </Content>
     </Container>
   );

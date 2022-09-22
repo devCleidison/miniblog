@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import { AppRoutes } from "./routes";
 
 import { Navbar } from "./components/Navbar";
+import { Loading } from "./components/Loading";
 
 import { useAuthentication } from "./hooks/useAuthentication";
 import { onAuthStateChanged } from "firebase/auth";
@@ -23,18 +24,19 @@ export default function App() {
     });
   }, [auth]);
 
-  if (loadingUser) {
-    return <p>Loading ...</p>;
-  }
-
   return (
-    <AuthProvider value={{ user }}>
-      <BrowserRouter>
-        <Navbar />
-        <AppRoutes />
-
-        <GlobalStyles />
-      </BrowserRouter>
-    </AuthProvider>
+    <>
+      {loadingUser ? (
+        <Loading />
+      ) : (
+        <AuthProvider value={{ user }}>
+          <BrowserRouter>
+            <Navbar />
+            <AppRoutes />
+          </BrowserRouter>
+        </AuthProvider>
+      )}
+      <GlobalStyles />
+    </>
   );
 }

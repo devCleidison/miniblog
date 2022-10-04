@@ -64,6 +64,31 @@ export const useAuthentication = () => {
     signOut(auth);
   };
 
+  const login = async (data) => {
+    checkIfIsCancelled();
+
+    setLoading(true);
+    setError(false);
+
+    try {
+      await signInWithEmailAndPassword(auth, data.email, data.password);
+      setLoading(false);
+    } catch (err) {
+      let systemErrorMessage;
+
+      if (err.message.includes("user-not-found")) {
+        systemErrorMessage = "User not found";
+      } else if (err.message.includes("wrong-password")) {
+        systemErrorMessage = "Wrong password";
+      } else {
+        systemErrorMessage = "Something went wrong, please try again later";
+      }
+
+      setError(systemErrorMessage);
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
     return () => setCancelled(true);
   }, []);
@@ -74,5 +99,6 @@ export const useAuthentication = () => {
     error,
     loading,
     logout,
+    login
   };
 };

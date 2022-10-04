@@ -17,13 +17,13 @@ export const SignIn = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const { createUser, error: authError, loading } = useAuthentication();
+  const { createUser, login, error: authError, loading } = useAuthentication();
 
   const [isShowModal, setIsShowModal] = useState(false);
 
   const { user } = useAuthValue();
 
-  const handleSubmit = async (e) => {
+  const handleCreateUser = async (e) => {
     e.preventDefault();
 
     const user = {
@@ -44,6 +44,17 @@ export const SignIn = () => {
     if (res) {
       handleModal();
     }
+  };
+
+  const handleUserLogin = async (e) => {
+    e.preventDefault();
+
+    const user = {
+      email,
+      password,
+    };
+
+    const res = await login(user);
   };
 
   const handleModal = () => {
@@ -73,7 +84,7 @@ export const SignIn = () => {
           <>
             {isShowModal && (
               <Modal handleModal={handleModal}>
-                <Form handleSubmit={handleSubmit}>
+                <Form handleSubmit={handleCreateUser}>
                   <span>Create your account</span>
 
                   <Input
@@ -117,7 +128,7 @@ export const SignIn = () => {
                   Mini <span>Blog</span>
                 </Brand>
 
-                <Form handleSubmit={handleSubmit}>
+                <Form handleSubmit={handleUserLogin}>
                   <span>Login to your account</span>
 
                   <Input
@@ -133,7 +144,8 @@ export const SignIn = () => {
                     onChange={(e) => setPassword(e.target.value)}
                   />
 
-                  <Input type="submit" value="Sign in" />
+                  {!loading && <Input type="submit" value="Sign in" />}
+                  {loading && <Input type="submit" value="Hold up" disabled />}
                 </Form>
 
                 <p>

@@ -8,6 +8,7 @@ import { Container, Content, Navigation } from "./styles";
 
 export const Navbar = () => {
   const { user } = useAuthValue();
+  const { logout } = useAuthentication();
 
   return (
     <Container>
@@ -64,6 +65,11 @@ export const Navbar = () => {
               <WarningCircle /> About
             </NavLink>
           </li>
+          {user && (
+            <li>
+              <button onClick={logout}>Logout</button>
+            </li>
+          )}
         </Navigation>
       </Content>
     </Container>

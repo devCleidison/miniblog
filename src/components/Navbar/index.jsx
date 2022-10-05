@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { House, Plus, SquaresFour, User, WarningCircle } from "phosphor-react";
+import { House, Plus, SignOut, SquaresFour, User, WarningCircle } from "phosphor-react";
 
 import { useAuthentication } from "../../hooks/useAuthentication";
 import { useAuthValue } from "../../context/AuthContext";
@@ -67,7 +67,9 @@ export const Navbar = () => {
           </li>
           {user && (
             <li>
-              <button onClick={logout}>Logout</button>
+              <button onClick={logout}>
+                <SignOut /> Logout
+              </button>
             </li>
           )}
         </Navigation>

@@ -41,7 +41,8 @@ export const Navigation = styled.ul`
   align-items: center;
   column-gap: 3rem;
 
-  li a {
+  li a,
+  li button {
     &.active {
       color: var(--primary-color);
     }
@@ -56,7 +57,8 @@ export const Navigation = styled.ul`
 
     width: 100%;
 
-    li a {
+    li a,
+    li button {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -72,5 +74,7 @@ export const Navigation = styled.ul`
         display: initial;
       }
     }
+
+    
   }
 `;

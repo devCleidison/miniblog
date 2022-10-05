@@ -25,7 +25,7 @@ export const Container = styled.input`
     margin-top: 2rem;
     padding: 1.4rem 1.6rem;
 
-    box-shadow: 0.3rem 0.4rem 0.6rem var(--primary-shadow);
+    box-shadow: 0 0.4rem 0.6rem rgba(0, 0, 0, 0.15);
     cursor: pointer;
 
     transition: background-color 300ms;

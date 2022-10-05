@@ -23,6 +23,7 @@ export const Container = styled.section`
     padding: 1rem 3rem;
 
     background-color: var(--primary-color);
+    box-shadow: 0 0.4rem 0.6rem rgba(0, 0, 0, 0.15);
     color: var(--bg-color);
     border-radius: 0.6rem;
 

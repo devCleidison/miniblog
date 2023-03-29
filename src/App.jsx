@@ -24,6 +24,8 @@ export default function App() {
     });
   }, [auth]);
 
+  // console.log(user)
+
   return (
     <>
       {loadingUser ? (
@@ -32,7 +34,7 @@ export default function App() {
         <AuthProvider value={{ user }}>
           <BrowserRouter>
             <Navbar />
-            <AppRoutes user={user}/>
+            <AppRoutes />
           </BrowserRouter>
         </AuthProvider>
       )}

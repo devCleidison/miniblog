@@ -14,12 +14,11 @@ export const Container = styled.section`
 
   p {
     color: var(--gray-color);
-    margin-bottom: 2rem;
   }
 
   a.btn-primary {
     display: block;
-    margin-top: 1.5rem;
+    margin-top: 1.6rem;
     padding: 1rem 3rem;
 
     background-color: var(--primary-color);
@@ -44,7 +43,7 @@ export const DevContainer = styled.div`
   align-items: center;
   row-gap: 1.2rem;
 
-  margin-top: 2.4rem;
+  margin-top: 3.6rem;
 
   img {
     width: 12rem;

@@ -28,9 +28,9 @@ export const Content = styled.div`
 
   .brand {
     font-size: 2.2rem;
+    font-weight: 700;
 
     span {
-      font-weight: 700;
       color: var(--primary-color);
     }
   }

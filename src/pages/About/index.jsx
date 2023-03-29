@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
+import { Browsers, GithubLogo, LinkedinLogo } from "phosphor-react";
+import { Link, NavLink } from "react-router-dom";
 
-import { Container } from "./styles";
+import { Container, DevContainer } from "./styles";
 
 export const About = () => {
   return (
@@ -13,7 +14,42 @@ export const About = () => {
         Firebase on back-end.
       </p>
 
-      <Link to="/posts/create">Create Post</Link>
+      <Link to="/posts/create" className="btn-primary">
+        Create Post
+      </Link>
+
+      <DevContainer>
+        <img src="https://github.com/devCleidison.png" alt="Developer photo" />
+        <span>
+          Developed by <span>Cleidison Silva</span>
+        </span>
+
+        <div>
+          <NavLink
+            to="//github.com/devCleidison"
+            target="_blank"
+            title="Github"
+          >
+            <GithubLogo />
+          </NavLink>
+
+          <NavLink
+            to="//www.linkedin.com/in/cleidison-silva/"
+            target="_blank"
+            title="LinkedIn"
+          >
+            <LinkedinLogo />
+          </NavLink>
+
+          <NavLink
+            to="//devcleidison-portfolio.netlify.app/"
+            target="_blank"
+            title="Portfolio"
+          >
+            <Browsers />
+          </NavLink>
+        </div>
+      </DevContainer>
     </Container>
   );
 };

@@ -34,7 +34,9 @@ export default function App() {
         <AuthProvider value={{ user }}>
           <BrowserRouter>
             <Navbar />
-            <AppRoutes />
+            <div className="container">
+              <AppRoutes />
+            </div>
           </BrowserRouter>
         </AuthProvider>
       )}

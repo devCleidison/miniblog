@@ -83,4 +83,15 @@ export const GlobalStyles = createGlobalStyle`
   ul {
     list-style: none;
   }
+
+  .container {
+    padding-inline: 3rem;
+
+    max-width: 112rem;
+    margin-inline: auto;
+
+    @media (max-width: 660px) {
+      padding-inline: initial;
+    }
+  }
 `;

@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.nav`
   box-shadow: rgba(0, 0, 0, 0.15) 0px -2px 10px 0px;
+  z-index: 50;
 
   @media (max-width: 660px) {
     position: fixed;

@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 import { Form } from "../../components/Form";
 import { Input } from "../../components/Input";
-import { Modal } from "../../components/Modal";
 import { Toast } from "../../components/Toast";
 
 import { useAuthentication } from "../../hooks/useAuthentication";
@@ -16,11 +15,9 @@ export const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [isSignInOrSignUp, setIsSignInOrSignUp] = useState(false);
 
   const { createUser, login, error: authError, loading } = useAuthentication();
-
-  const [isShowModal, setIsShowModal] = useState(false);
-
   const { user } = useAuthValue();
 
   const handleCreateUser = async (e) => {
@@ -32,7 +29,7 @@ export const SignIn = () => {
       password,
     };
 
-    if (isShowModal) {
+    if (isSignInOrSignUp) {
       if (password !== confirmPassword) {
         toast.error("Passwords do not match", { className: "toast-alert" });
         return;
@@ -42,7 +39,7 @@ export const SignIn = () => {
     const res = await createUser(user);
 
     if (res) {
-      handleModal();
+      handleSignInOrSignUp();
     }
   };
 
@@ -57,16 +54,16 @@ export const SignIn = () => {
     const res = await login(user);
   };
 
-  const handleModal = () => {
+  const handleSignInOrSignUp = () => {
     setDisplayName("");
     setEmail("");
     setPassword("");
     setConfirmPassword("");
 
-    if (isShowModal) {
-      setIsShowModal(false);
+    if (isSignInOrSignUp) {
+      setIsSignInOrSignUp(false);
     } else {
-      setIsShowModal(true);
+      setIsSignInOrSignUp(true);
     }
   };
 
@@ -82,8 +79,12 @@ export const SignIn = () => {
       <Content>
         {!user && (
           <>
-            {isShowModal && (
-              <Modal handleModal={handleModal}>
+            {isSignInOrSignUp && (
+              <>
+                <Brand>
+                  Mini <span>Blog</span>
+                </Brand>
+
                 <Form handleSubmit={handleCreateUser}>
                   <span>Create your account</span>
 
@@ -119,10 +120,19 @@ export const SignIn = () => {
                   {!loading && <Input type="submit" value="Sign up" />}
                   {loading && <Input type="submit" value="Hold up" disabled />}
                 </Form>
-              </Modal>
+
+                <p>
+                  Do you have an account?
+                  <Input
+                    type="button"
+                    value="Sign in"
+                    onClick={handleSignInOrSignUp}
+                  />
+                </p>
+              </>
             )}
 
-            {!isShowModal && (
+            {!isSignInOrSignUp && (
               <>
                 <Brand>
                   Mini <span>Blog</span>
@@ -149,8 +159,12 @@ export const SignIn = () => {
                 </Form>
 
                 <p>
-                  Dont't have an account?
-                  <Input type="button" value="Sign up" onClick={handleModal} />
+                  Don't have an account?
+                  <Input
+                    type="button"
+                    value="Sign up"
+                    onClick={handleSignInOrSignUp}
+                  />
                 </p>
               </>
             )}

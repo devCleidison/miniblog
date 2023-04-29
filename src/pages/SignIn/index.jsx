@@ -2,12 +2,11 @@ import { useEffect, useState } from "react";
 
 import { Form } from "../../components/Form";
 import { Input } from "../../components/Input";
-import { Toast } from "../../components/Toast";
+import { toast } from "../../components/Toast";
 
 import { useAuthentication } from "../../hooks/useAuthentication";
 import { useAuthValue } from "../../context/AuthContext";
 
-import { toast } from "../../components/Toast";
 import { Container, Content, Brand } from "./styles";
 
 export const SignIn = () => {

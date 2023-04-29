@@ -3,8 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuthValue } from "../../context/AuthContext";
 import { useInsertDocument } from "../../hooks/useInsertDocument";
 
-import { Toast } from "../../components/Toast";
-import { toast } from "react-toastify";
+import { toast } from "../../components/Toast";
 
 import { Form } from "../../components/Form";
 import { Input } from "../../components/Input";
@@ -16,7 +15,6 @@ export const CreatePost = () => {
   const [image, setImage] = useState("");
   const [body, setBody] = useState("");
   const [tags, setTags] = useState([]);
-  const [formError, setFormError] = useState("");
 
   const { user } = useAuthValue();
 
@@ -24,8 +22,6 @@ export const CreatePost = () => {
 
   const handleSavePost = (e) => {
     e.preventDefault();
-
-    setFormError("");
 
     insertDocument({
       title,
@@ -37,15 +33,12 @@ export const CreatePost = () => {
     });
 
     if (response.error) {
-      setFormError(response.error);
       toast.error(response.error, { className: "toast-alert" });
     }
   };
 
   return (
     <Container>
-      <Toast />
-
       <h2>Create post</h2>
       <p>Write about whatever you want and share your knowledge!</p>
 

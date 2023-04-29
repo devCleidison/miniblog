@@ -5,6 +5,7 @@ import { AppRoutes } from "./routes";
 
 import { Navbar } from "./components/Navbar";
 import { Loading } from "./components/Loading";
+import { ToastContainer } from "./components/Toast";
 
 import { useAuthentication } from "./hooks/useAuthentication";
 import { onAuthStateChanged } from "firebase/auth";
@@ -24,14 +25,13 @@ export default function App() {
     });
   }, [auth]);
 
-  // console.log(user)
-
   return (
     <>
       {loadingUser ? (
         <Loading />
       ) : (
         <AuthProvider value={{ user }}>
+          <ToastContainer />
           <BrowserRouter>
             <Navbar />
             <div className="container">

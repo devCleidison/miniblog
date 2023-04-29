@@ -7,7 +7,7 @@ import { Toast } from "../../components/Toast";
 import { useAuthentication } from "../../hooks/useAuthentication";
 import { useAuthValue } from "../../context/AuthContext";
 
-import { toast } from "react-toastify";
+import { toast } from "../../components/Toast";
 import { Container, Content, Brand } from "./styles";
 
 export const SignIn = () => {
@@ -75,7 +75,6 @@ export const SignIn = () => {
 
   return (
     <Container>
-      <Toast />
       <Content>
         {!user && (
           <>

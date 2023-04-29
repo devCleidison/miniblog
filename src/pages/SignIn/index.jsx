@@ -16,7 +16,7 @@ export const SignIn = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isSignInOrSignUp, setIsSignInOrSignUp] = useState(false);
 
-  const { createUser, login, error: authError, loading } = useAuthentication();
+  const { createUser, login, error: authError, setError, loading } = useAuthentication();
   const { user } = useAuthValue();
 
   const handleCreateUser = async (e) => {
@@ -70,6 +70,8 @@ export const SignIn = () => {
     if (authError) {
       toast.error(authError, { className: "toast-alert" });
     }
+
+    return () => setError(null);
   }, [authError]);
 
   return (

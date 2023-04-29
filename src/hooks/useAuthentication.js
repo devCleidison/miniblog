@@ -70,6 +70,12 @@ export const useAuthentication = () => {
     setLoading(true);
     setError(false);
 
+    if(!data.email || !data.password) {
+      setLoading(false);
+      setError("Email and password are required.");
+      return;
+    }
+
     try {
       await signInWithEmailAndPassword(auth, data.email, data.password);
       setLoading(false);
@@ -97,6 +103,7 @@ export const useAuthentication = () => {
     auth,
     createUser,
     error,
+    setError,
     loading,
     logout,
     login

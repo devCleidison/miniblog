@@ -22,18 +22,18 @@ export const SignIn = () => {
   const handleCreateUser = async (e) => {
     e.preventDefault();
 
+    if (isSignInOrSignUp) {
+      if (password !== confirmPassword) {
+        toast.error("Passwords do not match");
+        return;
+      }
+    }
+
     const user = {
       displayName,
       email,
       password,
     };
-
-    if (isSignInOrSignUp) {
-      if (password !== confirmPassword) {
-        toast.error("Passwords do not match", { className: "toast-alert" });
-        return;
-      }
-    }
 
     const res = await createUser(user);
 
@@ -68,7 +68,7 @@ export const SignIn = () => {
 
   useEffect(() => {
     if (authError) {
-      toast.error(authError, { className: "toast-alert" });
+      toast.error(authError);
     }
 
     return () => setError(null);
@@ -93,28 +93,24 @@ export const SignIn = () => {
                     placeholder="Name"
                     value={displayName}
                     onChange={(e) => setDisplayName(e.target.value)}
-                    required
                   />
                   <Input
                     type="email"
                     placeholder="Email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    required
                   />
                   <Input
                     type="password"
                     placeholder="Password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    required
                   />
                   <Input
                     type="password"
                     placeholder="Confirm Password"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
-                    required
                   />
 
                   {!loading && <Input type="submit" value="Sign up" />}

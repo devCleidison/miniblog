@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-
-import { db } from "../services/firebase";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -14,7 +12,7 @@ export const useAuthentication = () => {
   const [loading, setLoading] = useState(null);
 
   // cleanup
-  // deal with memmory leak
+  // deal with memory leak
   const [cancelled, setCancelled] = useState(false);
 
   const auth = getAuth();
@@ -28,6 +26,12 @@ export const useAuthentication = () => {
 
     setLoading(true);
     setError(null);
+
+    if(!data.displayName || !data.email || !data.password) {
+      setLoading(false);
+      setError("You need to provide necessary information");
+      return;
+    }
 
     try {
       const { user } = await createUserWithEmailAndPassword(
@@ -68,7 +72,7 @@ export const useAuthentication = () => {
     checkIfIsCancelled();
 
     setLoading(true);
-    setError(false);
+    setError(null);
 
     if(!data.email || !data.password) {
       setLoading(false);

@@ -7,6 +7,8 @@ import {
   signOut,
 } from "firebase/auth";
 
+// import { db } from "../services/firebase";
+
 export const useAuthentication = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(null);
@@ -41,7 +43,7 @@ export const useAuthentication = () => {
       );
 
       await updateProfile(user, {
-        displayName: user.displayName,
+        displayName: data.displayName,
       });
 
       setLoading(false);
